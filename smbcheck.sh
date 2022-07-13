@@ -132,5 +132,5 @@ do
         smbclient -L $ips  -N  > /dev/null 2>&1  && echo " $(tput setaf 4)[+] $(tput setaf 7) SE ENCONTRO UN CARPETA COMPARTIDA CON ANONYMOUS LOGIN EN $ips"  && echo " $(tput setaf 4) [+] $(tput setaf 6)VERIFICANDO ACCESOS" && smbclient -L $ips -N 2>/dev/null  | grep Disk | sed 's/\s*\(.\)\sDisk./\1/' | while read Folders; do echo "$(tput setaf 6)==${Folders}==$(tput setaf 7) "; smbclient "//$ips/${Folders}" -N -c dir 2>/dev/null; echo;   done && echo "  $(tput setaf 1)[-] $(tput setaf 1) NO SE LOGRO ACCEDDER A LAS CARPETAS :("    
 done
 
-
+exit 0
 
